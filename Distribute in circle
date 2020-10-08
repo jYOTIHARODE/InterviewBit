@@ -1,0 +1,8 @@
+int Solution::solve(int B, int A, int C) 
+{
+    if (B <= A - C + 1)
+		return B + C - 1;
+
+	B = B - (A - C + 1);
+	return (B % A == 0) ? A : (B % A);
+}
