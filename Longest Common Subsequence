@@ -1,0 +1,20 @@
+int Solution::solve(string A, string B) 
+{
+    int n = A.size();
+    int m = B.size();
+    int DP[n+1][m+1];
+
+    memset(DP,0,sizeof(DP));
+
+    for(int i=1; i<=n; i++)
+    {
+      for(int j=1; j<=m; j++)
+      {
+        if(A[i-1] == B[j-1])
+          DP[i][j] = DP[i-1][j-1] + 1;
+        else
+          DP[i][j] = max(DP[i-1][j], DP[i][j-1]);
+      }
+    }
+return DP[n][m];
+}
