@@ -1,0 +1,13 @@
+void validate(vector<int>&A , int low , int high , int &i)
+{
+    if(i==A.size() or A[i]>high or A[i]<low)    return ;
+    int root = A[i++] ;
+    validate(A,low,root,i);
+    validate(A,root,high,i);
+}
+
+int Solution::solve(vector<int> &A) {
+    int i=0;
+    validate(A , INT_MIN, INT_MAX ,i);
+    return i==A.size();
+}
